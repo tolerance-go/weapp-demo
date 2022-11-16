@@ -1,0 +1,186 @@
+export const meta = {
+   title: '设计概述',
+   navTitle: 'gen-scripts',
+   navOrder: 5,
+}
+
+## 概述
+
+gen-scripts 包含：
+
+-  gen-pages
+-  gen-menu
+-  gen-api
+
+三个模块
+
+gen-page 会将 pages 文件夹下的内容映射成对象数据
+
+```tsx
+export const pagesData = {
+   path: '/Users/yarnb/future/fenxing-next/packages/utils-doc/pages',
+   isDirectory: true,
+   name: 'pages',
+   children: [
+      {
+         path: '/Users/yarnb/future/fenxing-next/packages/utils-doc/pages/_app.tsx',
+         isDirectory: false,
+         name: '_app.tsx',
+         children: [],
+      },
+      {
+         path: '/Users/yarnb/future/fenxing-next/packages/utils-doc/pages/index.ts',
+         isDirectory: false,
+         name: 'index.ts',
+         children: [],
+      },
+   ],
+}
+```
+
+类型如下
+
+```ts
+export type FileData = {
+   path: string
+   name: string
+   children: FileData[]
+   isDirectory: boolean
+}
+```
+
+此过程 gen-pages 不会忽略任何文件
+
+gen-menu 会基于该数据继续生成菜单需要的数据结构
+
+包含一个 `menuData` 和 `menuMaps` 导出，数据类型如下
+
+> menuMaps 的 key 是基于 url，将 tree 转成对象形式了
+
+```ts
+export type MenuData = {
+   name: string
+   url: string
+   order: number
+   meta: {
+      title?: string
+      order?: number
+      groupOrder?: number
+      navOrder?: number
+      groupTitle?: string
+      navTitle?: string
+      isNav: boolean
+      isGroup: boolean
+   }
+   children: MenuData[]
+}
+```
+
+meta 是文件中定义了，符合下面的格式就可以提取出来
+
+```ts
+export const meta = {
+    title: '设计概述',
+    navTitle: 'gen-scripts',
+    order: 5,
+    ...
+}
+```
+
+代码示例如下：
+
+```ts
+export const menuData = [
+   {
+      name: '首页',
+      url: '/',
+      order: 0,
+      meta: {
+         title: '首页',
+         navTitle: '首页',
+         order: 0,
+         isGroup: false,
+         isNav: true,
+      },
+      children: [],
+   },
+   {
+      name: 'useRequest',
+      url: '/useRequest',
+      order: 0,
+      meta: {
+         title: 'useRequest',
+         navTitle: 'useRequest',
+         order: 0,
+         isGroup: false,
+         isNav: true,
+      },
+      children: [
+         {
+            name: 'sub',
+            url: '/useRequest/sub',
+            order: 0,
+            meta: { title: 'sub', order: 0, isGroup: true, isNav: false },
+            children: [
+               {
+                  name: 'sub',
+                  url: '/useRequest/sub',
+                  order: 0,
+                  meta: {
+                     title: 'sub',
+                     order: 0,
+                     isGroup: false,
+                     isNav: false,
+                  },
+                  children: [],
+               },
+            ],
+         },
+      ],
+   },
+]
+export const menuMaps = {
+   '/': {
+      name: '首页',
+      url: '/',
+      order: 0,
+      meta: {
+         title: '首页',
+         navTitle: '首页',
+         order: 0,
+         isGroup: false,
+         isNav: true,
+      },
+   },
+   '/useRequest/sub': {
+      name: 'sub',
+      url: '/useRequest/sub',
+      order: 0,
+      meta: { title: 'sub', order: 0, isGroup: false, isNav: false },
+   },
+   '/useRequest/basic': {
+      name: 'basic',
+      url: '/useRequest/basic',
+      order: 1,
+      meta: { title: 'basic', order: 1, isGroup: false, isNav: false },
+   },
+}
+```
+
+## 需求
+
+## 依赖项目
+
+## 用例设计
+
+## 概念模型
+
+## 数据模型
+
+## 组件设计
+
+## 注意事项
+
+## 实现细节
+
+## 更新记录

@@ -1,0 +1,25 @@
+{
+  "changesets": [
+    {
+      "releases": [
+        {
+          "name": "@yorkbar/mandong-docs",
+          "type": "patch"
+        }
+      ],
+      "summary": "build(mandong-docs): add @yorkbar/tsconfig",
+      "id": "gorgeous-rockets-dream"
+    }
+  ],
+  "releases": [
+    {
+      "name": "@yorkbar/mandong-docs",
+      "type": "patch",
+      "oldVersion": "1.0.2",
+      "changesets": [
+        "gorgeous-rockets-dream"
+      ],
+      "newVersion": "1.0.3"
+    }
+  ]
+}

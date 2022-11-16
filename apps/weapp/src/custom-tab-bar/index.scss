@@ -1,0 +1,34 @@
+// 这是 wx 自带的结构
+.tab-bar-border {
+    background-color: #fafafa;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.tabBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: white;
+    display: flex;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tabBar-item {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tabBar-item-text {
+    font-size: 28px;
+    font-weight: 300;
+}

@@ -1,0 +1,19 @@
+export const meta = {
+    title: 'genMenu',
+    order: 1,
+}
+
+## 概述
+
+## 实现约定
+
+-   忽略 pages 下的 `_` 打头和 `api` 文件及目录
+
+## 使用约定
+
+-   文件夹必须提供 index
+    > 如果不这样约定，菜单的结构就不是一个标准的分形结构，
+    > 如此，我们可以保证菜单的 url 一定是所有子级 url 的开头，
+    > 并且菜单的 url 一定有对应的页面，也就是 index
+-   pages 下第一层为 nav，大于第一层 为 group
+-   通过 navOrder 和 goupOrder 可以其定义所在层的顺序

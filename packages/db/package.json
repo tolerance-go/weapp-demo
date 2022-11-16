@@ -1,0 +1,32 @@
+{
+   "name": "@yorkbar/mandong-db",
+   "version": "1.0.1",
+   "description": "",
+   "keywords": [],
+   "license": "ISC",
+   "author": "",
+   "main": "index.ts",
+   "scripts": {
+      "clean": "rimraf .turbo node_modules",
+      "db:generate": "prisma generate",
+      "db:migrate:deploy": "prisma migrate deploy",
+      "db:migrate:dev": "prisma migrate dev",
+      "db:push": "prisma db push",
+      "db:seed": "tsx seed.ts",
+      "format": "prisma format",
+      "postinstall": "npm run db:generate",
+      "lint": "TIMING=1 eslint \"./**/*.ts\"",
+      "prebuild": "npm run db:generate",
+      "predev": "npm run db:generate",
+      "studio": "prisma studio"
+   },
+   "dependencies": {
+      "@prisma/client": "^4.5.0"
+   },
+   "devDependencies": {
+      "@yorkbar/tsconfig": "workspace:*",
+      "prisma": "^4.5.0",
+      "tsx": "^3.12.1",
+      "typescript": "^4.8.4"
+   }
+}

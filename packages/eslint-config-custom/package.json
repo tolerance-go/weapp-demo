@@ -1,0 +1,22 @@
+{
+   "name": "@yorkbar/eslint-config-custom",
+   "version": "1.0.0",
+   "license": "MIT",
+   "main": "index.js",
+   "scripts": {
+      "clean:node_modules": "rimraf node_modules"
+   },
+   "dependencies": {
+      "eslint": "^7.23.0",
+      "eslint-config-next": "13.0.0",
+      "eslint-config-prettier": "^8.3.0",
+      "eslint-config-turbo": "latest",
+      "eslint-plugin-react": "7.31.8"
+   },
+   "devDependencies": {
+      "typescript": "^4.7.4"
+   },
+   "publishConfig": {
+      "access": "public"
+   }
+}

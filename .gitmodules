@@ -1,0 +1,9 @@
+[submodule "packages/geist-ui"]
+	path = packages/ui
+	url = git@github.com:tolerance-go/geist-ui.git
+[submodule "packages/react-hook-form"]
+	path = dependents/react-hook-form
+	url = git@github.com:tolerance-go/react-hook-form.git
+[submodule "packages/iron-session"]
+	path = dependents/iron-session
+	url = git@github.com:tolerance-go/iron-session.git

@@ -1,0 +1,39 @@
+{
+   "$schema": "https://turbo.build/schema.json",
+   "pipeline": {
+      "build": {
+         "dependsOn": ["^build"],
+         "outputs": ["dist/**", ".next/**"]
+      },
+      "test": {
+         "outputs": ["coverage/**"]
+      },
+      "test:watch": {
+         "cache": false
+      },
+      "lint": {
+         "outputs": []
+      },
+      "dev": {
+         "cache": false
+      },
+      "clean": {
+         "cache": false
+      },
+      "db:migrate:deploy": {
+         "cache": false
+      },
+      "db:push": {
+         "cache": false
+      },
+      "db:seed": {
+         "cache": false
+      },
+      "db:migrate:dev": {
+         "cache": false
+      },
+      "db:generate": {
+         "cache": false
+      }
+   }
+}
